@@ -5,9 +5,9 @@ const Root = () => {
   return (
     <div>
       <Navbar></Navbar>
-      {/* <div className="min-h-[calc(100vh-460px)]"> */}
+      <div className="min-h-[calc(100vh-432px)]">
       <Outlet></Outlet>
-      {/* </div> */}
+      </div>
       <Footer></Footer>
     </div>
   );

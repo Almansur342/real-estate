@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types';
 import { IoLocationOutline } from "react-icons/io5";
+import { Link } from 'react-router-dom';
 const Cards = ({estate}) => {
-  console.log(estate);
-  const {image,estate_title,segment_name,price,status,area,facilities,location} = estate;
+  // console.log(estate);
+  const {image,estate_title,segment_name,price,status,area,facilities,location,id} = estate;
   return (
   <div className="card shadow-2xl bg-white p-6">
   <figure className='relative'>
@@ -28,7 +29,7 @@ const Cards = ({estate}) => {
       <li className='ml-5'>{facilities[2]}</li>
     </div>
     <div className="card-actions">
-    <button className="px-6 font-semibold text-xl text-white bg-[#23BE0A] rounded py-2">View Property</button>
+    <Link to={`/details/${id}`} className="px-6 font-semibold text-xl text-white bg-[#23BE0A] rounded py-2">View Property</Link>
     </div>
   </div>
 </div>

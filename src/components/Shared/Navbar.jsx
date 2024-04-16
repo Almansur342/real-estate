@@ -4,9 +4,9 @@ import logo from '../../assets/logo.png';
 const Navbar = () => {
 
   const navLink = <div className="flex items-center">
-    <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-[#23BE0A] text-lg hover:bg-white hover:text-[#23BE0A] font-semibold' : 'text-[#131313CC]'}>Home</NavLink></li>
+    <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-[#23BE0A] text-lg bg-white hover:text-[#23BE0A] hover:bg-white font-semibold' : 'text-[#131313CC]'}>Home</NavLink></li>
 
-    <li><NavLink to='/updateProfile' className={({ isActive }) => isActive ? ' text-[#23BE0A] text-lg hover:bg-white hover:text-[#23BE0A] font-semibold' : 'text-[#131313CC]'}>Update Profile</NavLink></li>
+    <li><NavLink to='/updateProfile' className={({ isActive }) => isActive ? ' text-[#23BE0A] text-lg bg-white hover:bg-white hover:text-[#23BE0A] font-semibold' : 'text-[#131313CC]'}>Update Profile</NavLink></li>
 
     <li><NavLink to='/contactUs' className={({ isActive }) => isActive ? 'text-[#23BE0A] text-lg hover:bg-white hover:text-[#23BE0A] font-semibold' : 'text-[#131313CC]'}>Contact Us</NavLink></li>
 
