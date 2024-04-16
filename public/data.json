@@ -1,0 +1,75 @@
+ [
+    {
+      "image": "https://i.ibb.co/2kcXKnx/pexels-john-tekeridis-1428348.jpg",
+      "estate_title": "Cozy Suburban Home",
+      "id": "SFH001",
+      "segment_name": "Single-family homes",
+      "description": "Nestled in a peaceful suburban neighborhood, this cozy single-family home offers comfort and convenience. With 3 bedrooms, 2 bathrooms, and a spacious living room, it provides ample space for family gatherings. The fully equipped kitchen is perfect for culinary adventures, while the backyard offers a private oasis for relaxation and outdoor activities.",
+      "price": "$350,000",
+      "status": "sale",
+      "area": "2,000 sq ft",
+      "location": "Suburbia Downtown",
+      "facilities": ["living room", "kitchen", "backyard"]
+    },
+    {
+      "image": "https://i.ibb.co/R7nfhcW/pexels-julia-volk-5193255.jpg",
+      "estate_title": "Modern Townhouse",
+      "id": "TH002",
+      "segment_name": "Townhouses",
+      "description": "Experience urban living at its finest in this modern townhouse boasting sleek design and upscale amenities. Featuring 3 bedrooms, 2.5 bathrooms, and a rooftop terrace with panoramic city views, it offers a luxurious lifestyle in the heart of a vibrant neighborhood. Ideal for those seeking sophistication and convenience.",
+      "price": "$500,000",
+      "status": "sale",
+      "area": "1,800 sq ft",
+      "location": "Downtown Metropolis",
+      "facilities": ["living room", "kitchen", "rooftop terrace"]
+    },
+    {
+      "image": "https://i.ibb.co/Srcppx0/pexels-max-vakhtbovycn-6580215.jpg",
+      "estate_title": "Luxurious Riverfront Apartment",
+      "id": "APT003",
+      "segment_name": "Apartments",
+      "description": "Indulge in luxury living with this exquisite downtown apartment offering breathtaking river views and modern comforts. With 2 bedrooms, 2 bathrooms, and upscale amenities including a gym and swimming pool, it provides an unparalleled urban lifestyle. Perfectly situated in the bustling city center for convenience and entertainment.",
+      "price": "$24,500",
+      "status": "rent",
+      "area": "1,200 sq ft",
+      "location": "City Center",
+      "facilities": ["living room", "kitchen", "gym", "swimming pool"]
+    },
+    {
+      "image": "https://i.ibb.co/7XQGN1C/pexels-mateusz-18874765.jpg",
+      "estate_title": "Student Housing near Campus",
+      "id": "SH004",
+      "segment_name": "Student housing",
+      "description": "Located just steps away from the university campus, this student housing complex offers convenience and community. Furnished units with shared common areas provide a comfortable living environment for students. Amenities such as a common room, study area, and laundry facilities enhance the college experience.",
+      "price": "$86,000",
+      "status": "rent",
+      "area": "1,200 sq ft",
+      "location": "University District",
+      "facilities": ["common room", "study area", "laundry facilities"]
+    },
+    {
+      "image": "https://i.ibb.co/YRV2ZZP/pexels-meruyert-gonullu-6152392.jpg",
+      "estate_title": "Retirement Community",
+      "id": "SL005",
+      "segment_name": "Senior living communities",
+      "description": "Embrace retirement living in this vibrant community offering resort-style amenities and personalized care options. With a range of independent and assisted living choices, residents can enjoy a fulfilling lifestyle tailored to their needs. From fitness facilities to lush gardens, every day offers opportunities for relaxation and socialization.",
+      "price": "$36,000",
+      "status": "rent",
+      "area": "1,500 sq ft",
+      "location": "Sunset Meadows",
+      "facilities": ["fitness center", "swimming pool", "dining hall", "gardens"]
+    },
+    {
+      "image": "https://i.ibb.co/b7RYkDc/pexels-rosie-c-18946624.jpg",
+      "estate_title": "Seaside Vacation Home",
+      "id": "VR006",
+      "segment_name": "Vacation rentals",
+      "description": "Escape to paradise in this stunning vacation rental boasting oceanfront views and exclusive beach access. With 4 bedrooms, spacious living areas, and a fully equipped kitchen, it's perfect for family getaways or romantic retreats. Relax on the private beach or explore nearby coastal attractions for an unforgettable vacation experience.",
+      "price": "$48,060",
+      "status": "rent",
+      "area": "3,000 sq ft",
+      "location": "Coastal Paradise",
+      "facilities": ["living room", "kitchen", "private beach access"]
+    }
+  ]
+
