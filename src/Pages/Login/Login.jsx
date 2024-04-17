@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Firebase/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { FcGoogle } from "react-icons/fc";
+import { FaGithub } from "react-icons/fa";
 
 
 const Login = () => {
@@ -50,6 +52,13 @@ const Login = () => {
           <button className="btn mt-6 bg-[#23BE0A] text-white text-lg mb-3 uppercase">Sign In</button>
         </div>
         <Link className="flex justify-center" to="/register">New here? <span className="text-[#23BE0A] ml-1">Create an account</span></Link>
+        <div className="divider">OR</div>
+        <div className="justify-around flex gap-5">
+        <button className="shadow-2xl bg-lime-200 px-6 rounded flex items-center gap-2 text-lg font-semibold py-2"><FcGoogle />Google</button>
+         <button className="bg-blue-500 px-6 rounded text-white flex gap-2 font-semibold items-center py-2"><FaGithub />
+ Github</button>
+        </div>
+         
       </form>
       <ToastContainer />
     </div>

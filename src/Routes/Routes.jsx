@@ -6,6 +6,7 @@ import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
 import PrivateRoute from './../Firebase/PrivateRoute/PrivateRoute';
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
+import Contact from './../Pages/Contact/Contact';
 
 const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ const router = createBrowserRouter([
       {
         path:'/updateProfile',
         element:<PrivateRoute><UpdateProfile></UpdateProfile></PrivateRoute>
+      },
+      {
+        path:'/contactUs',
+        element:<PrivateRoute><Contact></Contact></PrivateRoute>
       }
     ]
   },

@@ -18,12 +18,13 @@ const Navbar = () => {
   }
 
   const navLink = <div className="flex items-center">
-    <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-[#23BE0A] text-lg bg-white hover:text-[#23BE0A] hover:bg-white font-semibold' : 'text-[#131313CC]'}>Home</NavLink></li>
+    <li className="!bg-white"><NavLink to='/' className={({ isActive }) => isActive ? 'border !bg-white border-green-600 text-[#23BE0A] ' : 'text-[#131313CC]'}>Home</NavLink></li>
 
-    <li><NavLink to='/updateProfile' className={({ isActive }) => isActive ? ' text-[#23BE0A] text-lg bg-white hover:bg-white hover:text-[#23BE0A] font-semibold' : 'text-[#131313CC]'}>Update Profile</NavLink></li>
+    <li className="!bg-white"><NavLink to='/updateProfile' className={({ isActive }) => isActive ? 'border !bg-white border-green-600 text-[#23BE0A]  ' : 'text-[#131313CC]'}>Update Profile</NavLink></li>
 
-    <li><NavLink to='/contactUs' className={({ isActive }) => isActive ? 'text-[#23BE0A] text-lg hover:bg-white hover:text-[#23BE0A] font-semibold' : 'text-[#131313CC]'}>Contact Us</NavLink></li>
-
+    { user && <>
+      <li><NavLink to='/contactUs' className={({ isActive }) => isActive ? 'border border-green-600 text-[#23BE0A]' : 'text-[#131313CC]'}>Contact Us</NavLink></li>
+    </>}
   </div>
   return (
     <div className="navbar bg-base-100 max-w-6xl mx-auto mt-5">
