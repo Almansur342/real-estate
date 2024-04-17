@@ -1,7 +1,21 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.png';
+import { useContext } from "react";
+import { AuthContext } from "../../Firebase/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const {user,logOut} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleLogOut = () =>{
+    logOut()
+    .then(result => {
+      console.log(result.user);
+      navigate('/');
+    })
+    .catch(error =>{
+      console.error(error);
+    })
+  }
 
   const navLink = <div className="flex items-center">
     <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-[#23BE0A] text-lg bg-white hover:text-[#23BE0A] hover:bg-white font-semibold' : 'text-[#131313CC]'}>Home</NavLink></li>
@@ -32,24 +46,27 @@ const Navbar = () => {
         </ul>
       </div>
       <div className="navbar-end">
-        {/* {user ? <div>
-          <img className="w-20 h-16 rounded-full border-2" src={user?.photoURL || 'image nai'} alt="" />
-          <p>{user?.displayName || 'mansur abdullah'}</p>
+        {user ?
+         <div className="flex items-center gap-5">
+          <div className="tooltip tooltip-bottom" data-tip={user?.displayName || 'mansur abdullah'}>
+          <img className="w-20 h-16 rounded-full border-2" src={user?.photoURL || 'https://i.ibb.co/7z4LN8c/pexels-pixabay-34534.jpg'} alt="" />
+          </div>
+          {/* <p>{user?.displayName || 'mansur abdullah'}</p> */}
           <Link to='/'>
-            <button onClick={handleLogOut} className="px-6 font-semibold text-xl text-white bg-[#403F3F] py-1">Sign out</button>
+            <button onClick={handleLogOut} className="px-6 font-semibold text-xl text-white bg-[#23BE0A] py-2">Sign out</button>
           </Link>
-        </div> : <div>
+        </div> : 
+        <div>
           <Link to='/login'>
-            <button className="px-6 font-semibold text-xl text-white bg-[#403F3F] py-1">Login</button>
+            <button className="px-6 font-semibold text-xl text-white bg-[#23BE0A] py-2 rounded">Login</button>
           </Link>
         </div>
-        } */}
-        <div>
+        }
+        {/* <div>
           <Link to='/login'>
             <button className="px-6 font-semibold text-xl text-white bg-[#23BE0A] rounded py-2">Login</button>
           </Link>
-        </div>
-          
+        </div> */}
       </div>
     </div>
   );

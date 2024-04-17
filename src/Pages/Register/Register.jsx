@@ -1,9 +1,45 @@
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Firebase/AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
+  const {createUser} = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleRegister = (e) =>{
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const name = form.get('name');
+    const photo = form.get('photo');
+    const email = form.get('email');
+    const password = form.get('password');
+    console.log(name,email,photo,password);
+    if(password.length < 6){
+      toast.error("password must be six character or longer");
+      return;
+    }else if(!/[A-Z]/.test(password)){
+      toast.error('Password should have at least an uppercase');
+      return;
+    } else if(!/[a-z]/.test(password)){
+      toast.error('Password should have at least a lowercase');
+      return;
+    }
+ 
+    createUser(email,password)
+    .then(result =>{
+      console.log(result.user);
+      toast.success('created successfully');
+      //  navigate('/login')
+
+    })
+    .catch(error =>{
+      console.error(error);
+    })
+  }
   return (
     <div className="bg-base-200 p-10">
-       <form className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3">
+       <form onSubmit={handleRegister} className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3">
        <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold text-base">User Name:</span>
@@ -14,27 +50,28 @@ const Register = () => {
             <label className="label">
               <span className="label-text font-semibold text-base">Email:</span>
             </label>
-            <input type="email" placeholder="email" className="input input-bordered" required />
+            <input type="email" name="email" placeholder="email" className="input input-bordered" required />
           </div>
           <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold text-base">photoURL
               :</span>
           </label>
-          <input type="email" placeholder="photoURL
+          <input type="text" placeholder="photoURL
           " className="input input-bordered" name="photo" required />
         </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text font-semibold text-base">Password:</span>
             </label>
-            <input type="password" placeholder="password" className="input input-bordered" required />
+            <input type="password" placeholder="password" name="password" className="input input-bordered" required />
           </div>
           <div className="form-control">
             <button className="btn mt-6 bg-[#23BE0A] text-white text-lg mb-3 uppercase">create an account</button>
           </div>
           <Link className="flex justify-center" to="/login">Already have an account?<span className="text-[#23BE0A] ml-1">Sign in.</span></Link>
         </form>
+        <ToastContainer />
     </div>
   );
 };

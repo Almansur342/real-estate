@@ -4,6 +4,7 @@ import Home from "../Pages/Home/Home";
 import Details from './../Pages/Details/Details';
 import Login from "../Pages/Login/Login";
 import Register from "../Pages/Register/Register";
+import PrivateRoute from './../Firebase/PrivateRoute/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,7 @@ const router = createBrowserRouter([
       },
       {
         path:'/details/:id',
-        element:<Details></Details>,
+        element:<PrivateRoute><Details></Details></PrivateRoute>,
         loader:()=> fetch('/data.json')
       },
       {

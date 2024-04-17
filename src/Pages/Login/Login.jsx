@@ -1,9 +1,37 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AuthContext } from "../../Firebase/AuthProvider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Login = () => {
+  const location = useLocation();
+  const navigate = useNavigate()
+  const { signIn} = useContext(AuthContext);
+  const handleSignIn = e => {
+    e.preventDefault();
+    const form = new FormData(e.currentTarget);
+    const email = form.get('email');
+    const password = form.get('password');
+    console.log(email, password);
+    signIn(email,password)
+    .then(result =>{
+      console.log(result.user);
+      toast("Wow so easy!");
+      navigate(location?.state ? location.state : '/')
+      // navigate after login
+      // navigate(location?.state ? location.state : '/')
+    })
+
+
+    .catch(error =>{
+      console.error(error);
+    })
+  }
   return (
     <div className="bg-base-200 p-10">
-      <form className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3">
+      <form onSubmit={handleSignIn} className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3">
        
         <div className="form-control">
           <label className="label">
@@ -23,6 +51,7 @@ const Login = () => {
         </div>
         <Link className="flex justify-center" to="/register">New here? <span className="text-[#23BE0A] ml-1">Create an account</span></Link>
       </form>
+      <ToastContainer />
     </div>
   );
 };
