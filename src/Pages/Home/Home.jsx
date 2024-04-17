@@ -15,7 +15,7 @@ const Home = () => {
       <Banner></Banner>
       <div className="mt-10 bg-slate-200 p-10">
         <h1 className="text-4xl animate__animated animate__backInLeft text-center text-black font-semibold mb-5">Featured Properties</h1>
-        <div className="grid grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {
           allEstate.map(estate => <Cards
            key={estate.id}

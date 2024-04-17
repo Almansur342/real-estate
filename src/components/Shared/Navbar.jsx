@@ -54,17 +54,17 @@ const Navbar = () => {
         {user ?
          <div className="flex items-center gap-5">
           <div className="tooltip tooltip-bottom" data-tip={user?.displayName || 'mansur abdullah'}>
-          <img className="w-20 h-16 rounded-full border-2" src={user?.photoURL || 'Image not found'} alt="" />
+          <img className="w-16 lg:w-20 h-16 rounded-full border-2" src={user?.photoURL || 'Image not found'} alt="" />
           {/* <img src={user.photoURL} alt="" /> */}
           </div>
           {/* <p>{user?.displayName || 'mansur abdullah'}</p> */}
           <Link to='/'>
-            <button onClick={handleLogOut} className="px-6 font-semibold text-xl text-white bg-[#23BE0A] py-2">Sign out</button>
+            <button onClick={handleLogOut} className="px-2 lg:px-6 font-semibold text-xs lg:text-xl text-white bg-[#23BE0A] py-1 lg:py-2 rounded">Sign out</button>
           </Link>
         </div> : 
         <div>
           <Link to='/login'>
-            <button className="px-6 font-semibold text-xl text-white bg-[#23BE0A] py-2 rounded">Login</button>
+            <button className="px-2 lg:px-6 font-semibold text-base lg:text-xl text-white bg-[#23BE0A] py-1 lg:py-2 rounded">Login</button>
           </Link>
         </div>
         }

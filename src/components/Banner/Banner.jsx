@@ -18,8 +18,8 @@ const Banner = () => {
       <a href="#slide2" className="btn btn-circle">❯</a>
     </div>
     <div className='w-2/5 absolute transform -translate-y-1/2 left-[100px] top-1/2'>
-      <h1 data-aos="fade-right" data-aos-duration = '1000' className='text-white text-3xl font-bold '>Unlock Your Dream <span className='text-white'>Home</span></h1>
-      <p data-aos="fade-right" data-aos-duration = '1200' className='text-white text-lg mt-3 brightness-200'>Explore our curated collection of exquisite properties. From cozy apartments to luxurious estates, find the perfect place to call home.</p>
+      <h1 data-aos="fade-right" data-aos-duration = '1000' className='text-white text-lg md:text-2xl lg:text-3xl font-bold '>Unlock Your Dream <span className='text-white'>Home</span></h1>
+      <p data-aos="fade-right" data-aos-duration = '1200' className='text-white text-xs md:text-base lg:text-lg mt-3 brightness-200'>Explore our curated collection of exquisite properties. From cozy apartments to luxurious estates, find the perfect place to call home.</p>
     </div>
   </div> 
   <div id="slide2" className="carousel-item relative w-full">
@@ -29,8 +29,8 @@ const Banner = () => {
       <a href="#slide3" className="btn btn-circle">❯</a>
     </div>
     <div className='w-2/5 absolute transform -translate-y-1/2 left-[100px] top-1/2'>
-      <h1 data-aos="fade-right" data-aos-duration = '1000' className='text-white text-3xl font-bold '>Invest in Your Future</h1>
-      <p data-aos="fade-right" data-aos-duration = '1200' className='text-white text-lg mt-3 brightness-200'>Discover prime commercial spaces and investment properties.we have got options that fit your vision</p>
+      <h1 data-aos="fade-right" data-aos-duration = '1000' className='text-white text-lg md:text-2xl lg:text-3xl font-bold '>Invest in Your Future</h1>
+      <p data-aos="fade-right" data-aos-duration = '1200' className='text-white text-xs md:text-base lg:text-lg mt-3 brightness-200'>Discover prime commercial spaces and investment properties.we have got options that fit your vision</p>
     </div>
   </div> 
   <div id="slide3" className="carousel-item relative w-full">
@@ -40,8 +40,8 @@ const Banner = () => {
       <a href="#slide4" className="btn btn-circle">❯</a>
     </div>
     <div className='w-2/5 absolute transform -translate-y-1/2 left-[100px] top-1/2'>
-      <h1 data-aos="fade-right" data-aos-duration = '1000' className='text-white text-3xl font-bold '>Redefine Luxury Living</h1>
-      <p data-aos="fade-right" data-aos-duration = '1200' className='text-white text-lg mt-3 brightness-200'>Step into opulence with our handpicked selection of high-end properties. From sprawling estates to penthouses with panoramic views, elevate your lifestyle</p>
+      <h1 data-aos="fade-right" data-aos-duration = '1000' className='text-white text-lg md:text-2xl lg:text-3xl font-bold '>Redefine Luxury Living</h1>
+      <p data-aos="fade-right" data-aos-duration = '1200' className='text-white text-xs md:text-base lg:text-lg mt-3 brightness-200'>Step into opulence with our handpicked selection of high-end properties. From sprawling estates to penthouses with panoramic views, elevate your lifestyle</p>
     </div>
   </div> 
   <div id="slide4" className="carousel-item relative w-full">
@@ -51,8 +51,8 @@ const Banner = () => {
       <a href="#slide1" className="btn btn-circle">❯</a>
     </div>
     <div className='w-2/5 absolute transform -translate-y-1/2 left-[100px] top-1/2'>
-      <h1 data-aos="fade-right" data-aos-duration = '1000' className='text-white text-3xl font-bold '>Your Home, Your Story</h1>
-      <p data-aos="fade-right" data-aos-duration = '1200' className='text-white text-lg mt-3 brightness-200'>Explore properties that resonate with your aspirations and create memories that last a lifetime.</p>
+      <h1 data-aos="fade-right" data-aos-duration = '1000' className='text-white text-lg md:text-2xl lg:text-3xl font-bold '>Your Home, Your Story</h1>
+      <p data-aos="fade-right" data-aos-duration = '1200' className='text-white text-xs md:text-base lg:text-lg mt-3 brightness-200'>Explore properties that resonate with your aspirations and create memories that last a lifetime.</p>
     </div>
   </div>
 </div>

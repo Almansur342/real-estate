@@ -86,13 +86,13 @@ const Login = () => {
   }
 
   return (
-    <div className="bg-slate-200 p-10">
+    <div className="bg-slate-200 max-w-md md:max-w-5xl lg:max-w-7xl p-1 md:p-10 lg:p-10">
       <Helmet>
         <title>Real Estate|Login</title>
       </Helmet>
-      <div className="bg-white w-2/5 mx-auto p-9 my-5">
+      <div className="bg-white w-4/5 md:w-4/5 lg:w-2/5 mx-auto p-3 lg:p-9 my-5">
       <form onSubmit={handleSubmit(onSubmit)} className=" space-y-3 rounded">
-        <h1 className="text-3xl animate__animated animate__backInDown font-semibold text-center uppercase">Login</h1>
+        <h1 className="text-2xl lg:text-3xl animate__animated animate__backInDown font-semibold text-center uppercase">Login</h1>
         <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold text-base">Email:</span>
@@ -120,14 +120,14 @@ const Login = () => {
             {errors.password && <span className="text-red-500">This field is required</span>}
           </div>
         <div className="form-control">
-          <button className="btn mt-6 bg-[#23BE0A] text-white text-lg mb-3 uppercase">Sign In</button>
+          <button className="btn mt-6 bg-[#23BE0A] text-white text-base lg:text-lg mb-3 uppercase">Sign In</button>
         </div>
         <Link className="flex justify-center" to="/register">New here? <span className="text-[#23BE0A] ml-1">Create an account</span></Link>
         <div className="divider">OR</div>
       </form>
-      <div className="justify-around flex gap-5">
-        <button onClick={handleGoogleLogin} className="shadow-2xl bg-lime-200 px-6 rounded flex items-center gap-2 text-lg font-semibold py-2"><FcGoogle />Google</button>
-        <button onClick={handleGithubLogin} className="bg-blue-500 px-6 rounded text-white flex gap-2 font-semibold items-center py-2"><FaGithub />
+      <div className="justify-around flex gap-1 lg:gap-5">
+        <button onClick={handleGoogleLogin} className="shadow-lg lg:shadow-2xl bg-lime-200 px-2 lg:px-6 rounded flex items-center gap-2 text-base lg:text-lg font-semibold py-1 lg:py-2"><FcGoogle />Google</button>
+        <button onClick={handleGithubLogin} className="shadow-lg lg:shadow-2xl bg-blue-500 px-2 lg:px-6 rounded flex items-center gap-2 text-base lg:text-lg font-semibold py-1 lg:py-2"><FaGithub />
           Github</button>
       </div>
       </div>
