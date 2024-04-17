@@ -1,14 +1,15 @@
 import { useContext, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Firebase/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { FaEye,FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
-  const {createUser} = useContext(AuthContext);
+  const {createUser,updateUserProfile} = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
   const handleRegister = (e) =>{
     e.preventDefault();
     const form = new FormData(e.currentTarget);
@@ -30,18 +31,20 @@ const Register = () => {
  
     createUser(email,password)
     .then(result =>{
-      console.log(result.user);
       toast.success('created successfully');
-       navigate('/login')
-
+      updateUserProfile(name,photo)
+      .then(()=>{
+      navigate(location?.state ? location.state : '/')
+      })
+     
     })
     .catch(error =>{
       console.error(error);
     })
   }
   return (
-    <div className="bg-base-200 p-10">
-       <form onSubmit={handleRegister} className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3">
+    <div className="bg-slate-200 p-10">
+       <form onSubmit={handleRegister} className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3 rounded">
        <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold text-base">User Name:</span>

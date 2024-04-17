@@ -17,8 +17,8 @@ const Login = () => {
     console.log(email, password);
     signIn(email,password)
     .then(result =>{
+      toast.success("Login successfully");
       console.log(result.user);
-      toast("Wow so easy!");
       navigate(location?.state ? location.state : '/')
       // navigate after login
       // navigate(location?.state ? location.state : '/')
@@ -30,8 +30,8 @@ const Login = () => {
     })
   }
   return (
-    <div className="bg-base-200 p-10">
-      <form onSubmit={handleSignIn} className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3">
+    <div className="bg-slate-200 p-10">
+      <form onSubmit={handleSignIn} className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3 rounded">
        
         <div className="form-control">
           <label className="label">
