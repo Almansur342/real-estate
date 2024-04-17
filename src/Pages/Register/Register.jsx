@@ -3,9 +3,11 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../Firebase/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { FaEye,FaEyeSlash } from "react-icons/fa";
 
 const Register = () => {
   const {createUser} = useContext(AuthContext);
+  const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const handleRegister = (e) =>{
     e.preventDefault();
@@ -30,7 +32,7 @@ const Register = () => {
     .then(result =>{
       console.log(result.user);
       toast.success('created successfully');
-      //  navigate('/login')
+       navigate('/login')
 
     })
     .catch(error =>{
@@ -60,11 +62,20 @@ const Register = () => {
           <input type="text" placeholder="photoURL
           " className="input input-bordered" name="photo" required />
         </div>
-          <div className="form-control">
+          <div className="form-control relative">
             <label className="label">
               <span className="label-text font-semibold text-base">Password:</span>
             </label>
-            <input type="password" placeholder="password" name="password" className="input input-bordered" required />
+            <input
+             type={showPassword ? "text" : "password"}
+              placeholder="password"
+               name="password" 
+               className="input input-bordered"
+               
+               required />
+            <span className="absolute bottom-3 right-4 text-xl" onClick={()=> setShowPassword(!showPassword)}>{
+              showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+            }</span>
           </div>
           <div className="form-control">
             <button className="btn mt-6 bg-[#23BE0A] text-white text-lg mb-3 uppercase">create an account</button>
