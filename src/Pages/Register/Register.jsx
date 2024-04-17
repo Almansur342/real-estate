@@ -4,31 +4,30 @@ import { AuthContext } from "../../Firebase/AuthProvider/AuthProvider";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { FaEye,FaEyeSlash } from "react-icons/fa";
+import { Helmet } from "react-helmet-async";
+import { useForm } from "react-hook-form";
 
 const Register = () => {
   const {createUser,updateUserProfile} = useContext(AuthContext);
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const handleRegister = (e) =>{
-    e.preventDefault();
-    const form = new FormData(e.currentTarget);
-    const name = form.get('name');
-    const photo = form.get('photo');
-    const email = form.get('email');
-    const password = form.get('password');
-    console.log(name,email,photo,password);
+  const { register, handleSubmit, watch, formState: { errors },} = useForm();
+  const onSubmit = data => {
+    console.log(data);
+    const {email,password,name,photo} = data;
+    console.log(email,password,name,photo);
     if(password.length < 6){
-      toast.error("password must be six character or longer");
-      return;
-    }else if(!/[A-Z]/.test(password)){
-      toast.error('Password should have at least an uppercase');
-      return;
-    } else if(!/[a-z]/.test(password)){
-      toast.error('Password should have at least a lowercase');
-      return;
-    }
- 
+          toast.error("password must be six character or longer");
+          return;
+        }else if(!/[A-Z]/.test(password)){
+          toast.error('Password should have at least an uppercase');
+          return;
+        } else if(!/[a-z]/.test(password)){
+          toast.error('Password should have at least a lowercase');
+          return;
+        }
+     
     createUser(email,password)
     .then(result =>{
       toast.success('created successfully');
@@ -42,20 +41,63 @@ const Register = () => {
       console.error(error);
     })
   }
+
+  // const handleRegister = (e) =>{
+  //   e.preventDefault();
+  //   const form = new FormData(e.currentTarget);
+  //   const name = form.get('name');
+  //   const photo = form.get('photo');
+  //   const email = form.get('email');
+  //   const password = form.get('password');
+  //   console.log(name,email,photo,password);
+  //   if(password.length < 6){
+  //     toast.error("password must be six character or longer");
+  //     return;
+  //   }else if(!/[A-Z]/.test(password)){
+  //     toast.error('Password should have at least an uppercase');
+  //     return;
+  //   } else if(!/[a-z]/.test(password)){
+  //     toast.error('Password should have at least a lowercase');
+  //     return;
+  //   }
+ 
+  //   createUser(email,password)
+  //   .then(result =>{
+  //     toast.success('created successfully');
+  //     updateUserProfile(name,photo)
+  //     .then(()=>{
+  //     navigate(location?.state ? location.state : '/')
+  //     })
+     
+  //   })
+  //   .catch(error =>{
+  //     console.error(error);
+  //   })
+  // }
   return (
     <div className="bg-slate-200 p-10">
-       <form onSubmit={handleRegister} className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3 rounded">
+      <Helmet>
+        <title>Real Estate|Register</title>
+      </Helmet>
+       <form onSubmit={handleSubmit(onSubmit)} className="w-2/5 bg-white mx-auto p-9 my-10 space-y-3 rounded">
+       <h1 className="text-3xl animate__animated animate__backInDown font-semibold text-center uppercase">Register</h1>
        <div className="form-control">
           <label className="label">
             <span className="label-text font-semibold text-base">User Name:</span>
           </label>
-          <input type="text" placeholder="User name" name="name" className="input input-bordered" required />
+          <input type="text" placeholder="User name" name="name" className="input input-bordered" 
+          {...register("name", { required: true })}
+          />
+          {errors.name && <span className="text-red-500">This field is required</span>}
         </div>
           <div className="form-control">
             <label className="label">
               <span className="label-text font-semibold text-base">Email:</span>
             </label>
-            <input type="email" name="email" placeholder="email" className="input input-bordered" required />
+            <input type="email" name="email" placeholder="email" className="input input-bordered"
+             {...register("email", { required: true })}
+            />
+             {errors.email && <span className="text-red-500">This field is required</span>}
           </div>
           <div className="form-control">
           <label className="label">
@@ -63,7 +105,10 @@ const Register = () => {
               :</span>
           </label>
           <input type="text" placeholder="photoURL
-          " className="input input-bordered" name="photo" required />
+          " className="input input-bordered" name="photo"
+          {...register("photo", { required: true })}
+          />
+            {errors.photo && <span className="text-red-500">This field is required</span>}
         </div>
           <div className="form-control relative">
             <label className="label">
@@ -75,10 +120,13 @@ const Register = () => {
                name="password" 
                className="input input-bordered"
                
-               required />
+               {...register("password", { required: true })}
+               />
+
             <span className="absolute bottom-3 right-4 text-xl" onClick={()=> setShowPassword(!showPassword)}>{
               showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
             }</span>
+             {errors.password && <span className="text-red-500">This field is required</span>}
           </div>
           <div className="form-control">
             <button className="btn mt-6 bg-[#23BE0A] text-white text-lg mb-3 uppercase">create an account</button>

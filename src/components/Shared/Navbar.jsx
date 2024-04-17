@@ -2,6 +2,7 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from '../../assets/logo.png';
 import { useContext } from "react";
 import { AuthContext } from "../../Firebase/AuthProvider/AuthProvider";
+import { Helmet } from "react-helmet-async";
 
 const Navbar = () => {
   const {user,logOut} = useContext(AuthContext);
@@ -28,6 +29,9 @@ const Navbar = () => {
   </div>
   return (
     <div className="navbar bg-base-100 max-w-6xl mx-auto mt-5">
+      <Helmet>
+        <title>Real Estate|Navbar</title>
+      </Helmet>
       <div className="navbar-start">
         <div className="dropdown">
           <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -50,7 +54,8 @@ const Navbar = () => {
         {user ?
          <div className="flex items-center gap-5">
           <div className="tooltip tooltip-bottom" data-tip={user?.displayName || 'mansur abdullah'}>
-          <img className="w-20 h-16 rounded-full border-2" src={user?.photoURL || 'https://i.ibb.co/7z4LN8c/pexels-pixabay-34534.jpg'} alt="" />
+          <img className="w-20 h-16 rounded-full border-2" src={user?.photoURL || 'Image not found'} alt="" />
+          {/* <img src={user.photoURL} alt="" /> */}
           </div>
           {/* <p>{user?.displayName || 'mansur abdullah'}</p> */}
           <Link to='/'>

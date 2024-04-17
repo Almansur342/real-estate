@@ -7,11 +7,17 @@ import Register from "../Pages/Register/Register";
 import PrivateRoute from './../Firebase/PrivateRoute/PrivateRoute';
 import UpdateProfile from "../Pages/UpdateProfile/UpdateProfile";
 import Contact from './../Pages/Contact/Contact';
+import ErrorPage from "../Pages/ErrorPage/ErrorPage";
+import AOS from 'aos';
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+// ..
+AOS.init();
 
 const router = createBrowserRouter([
   {
     path: "/",
     element:<Root></Root>,
+    errorElement:<ErrorPage></ErrorPage>,
     children:[
       {
         path:'/',

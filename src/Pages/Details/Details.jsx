@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { AiOutlineCheck } from "react-icons/ai";
 import { useLoaderData, useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+
 
 const Details = () => {
   const { id } = useParams();
@@ -19,6 +21,9 @@ const Details = () => {
   const { image, estate_title, segment_name, price, status, area, facilities, location, description } = matched || {};
   return (
     <div className="my-10 bg-slate-200 p-10">
+      <Helmet>
+        <title>Real Estate|Details</title>
+      </Helmet>
       <div>
         <h1 className="text-3xl text-[#23BE0A] font-semibold my-2">{estate_title}</h1>
         <div className='flex items-center gap-1 text-lg mb-5'>
